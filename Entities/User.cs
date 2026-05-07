@@ -7,13 +7,13 @@ namespace SkillBridge.Api.Entities
         [Required, Key]
         public int Id{ get; set; }
         [Required]
-        public string Name { get; set; }
+        public string? Name { get; set; }
         [Required, EmailAddress]
-        public string Email { get; set; }
+        public string? Email { get; set; }
         [Required]
-        public string PasswordHash { get; set; }
+        public string? PasswordHash { get; set; }
         [Required]
-        public string Type { get; set; }
+        public string? Type { get; set; }
         [Required]
         public DateTime createdAt { get; set; }
 
