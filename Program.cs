@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Microsoft.JSInterop.Infrastructure;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,8 +12,9 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 builder.Services.AddScoped<IJobRepository, JobRepository>();
-var app = builder.Build();
+builder.Services.AddDbContext<SkillBridgeDbContext>(optios => optios.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -25,3 +29,11 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+internal class Options
+{
+    internal static void UseSqlServer(string? v)
+    {
+        throw new NotImplementedException();
+    }
+}

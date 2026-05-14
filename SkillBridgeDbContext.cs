@@ -9,4 +9,11 @@ public class SkillBridgeDbContext : DbContext
     }
     
 public DbSet<User> Users { get; set;}
+
+public DbSet<Job> Jobs { get; set; }
+
+public DbSet<JobApplication> jobApplications { get; set; }
+
+public DbSet<UserProfile> UserProfiles {get; set;}
+
 }
